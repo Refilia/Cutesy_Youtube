@@ -253,13 +253,14 @@ ytmusic-play-button-renderer[button-renderer] {
 }
 
 /* --- Home / browse feed background -------------------------------------- */
-/* YT Music paints a dark-to-accent gradient here (linear-gradient from a dark
-   overlay to the page colour). Force it light: pastel pink fading to white. */
+/* YT Music paints its own dark-to-accent gradient here (a single, non-looping
+   gradient that ends abruptly -> a sharp cut on long pages). Make it
+   transparent so the seamless looping pink<->white body gradient shows through
+   on Home/browse pages too, matching every other page. */
 ytmusic-browse-response .background-gradient,
 .background-gradient.ytmusic-browse-response,
 #background.ytmusic-browse-response {
-  background-image: linear-gradient(180deg, #ffd6e8 0%, #fff0f6 45%, #ffffff 100%) !important;
-  background-color: #ffffff !important;
+  background: transparent !important;
 }
 
 /* --- Now-playing / immersive background --------------------------------- */
