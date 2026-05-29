@@ -1,0 +1,34 @@
+{
+  "name": "cutesy-youtube-music",
+  "version": "1.0.0",
+  "description": "A cutesy pastel pink/white YouTube Music desktop app for Windows",
+  "main": "src/main/index.js",
+  "author": "deanjoy",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.deanjoy.cutesyyoutubemusic",
+    "productName": "Cutesy YouTube Music",
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

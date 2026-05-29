@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cutesy YouTube Music</title>
+    <link rel="stylesheet" href="titlebar.css" />
+  </head>
+  <body>
+    <!-- The title bar is the only thing this shell renders; the YouTube Music
+         WebContentsView is layered below it by the main process. -->
+    <div id="cutesy-titlebar">
+      <div class="cutesy-titlebar__brand">
+        <svg class="cutesy-titlebar__icon" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <rect x="0" y="0" width="18" height="18" rx="6" fill="#ff8fb1" />
+          <path d="M7 5l6 4-6 4z" fill="#fff" />
+        </svg>
+        <span class="cutesy-titlebar__title">✧ Cutesy YouTube Music ♡</span>
+      </div>
+      <div class="cutesy-titlebar__controls">
+        <button class="cutesy-titlebar__btn" id="btn-min" title="Minimize" aria-label="Minimize">─</button>
+        <button class="cutesy-titlebar__btn" id="btn-max" title="Maximize" aria-label="Maximize">▢</button>
+        <button class="cutesy-titlebar__btn cutesy-titlebar__btn--close" id="btn-close" title="Close" aria-label="Close">✕</button>
+      </div>
+    </div>
+
+    <script>
+      // NOTE: do not declare a `const windowControls` here — that name is a
+      // global created by the preload's contextBridge, and re-declaring it
+      // throws "Identifier already declared", killing this whole script.
+      const maxBtn = document.getElementById('btn-max');
+      document.getElementById('btn-min').addEventListener('click', () => window.windowControls.minimize());
+      maxBtn.addEventListener('click', () => window.windowControls.maximize());
+      document.getElementById('btn-close').addEventListener('click', () => window.windowControls.close());
+
+      // Swap the maximize glyph to a "restore" glyph when maximized.
+      window.windowControls.onMaximizedChange((isMax) => {
+        maxBtn.textContent = isMax ? '❐' : '▢';
+        maxBtn.title = isMax ? 'Restore' : 'Maximize';
+      });
+    </script>
+  </body>
+</html>

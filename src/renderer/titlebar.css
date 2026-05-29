@@ -1,0 +1,94 @@
+/* ===========================================================================
+   Custom cutesy title bar — styles the local shell page (shell.html).
+   The YouTube Music WebContentsView is positioned by the main process to fill
+   the window below this bar, so no offset hacks against YT Music are needed.
+   =========================================================================== */
+
+:root {
+  --cutesy-titlebar-height: 40px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
+
+#cutesy-titlebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--cutesy-titlebar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 0 14px;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #ffc2dc 0%, #ffd6e8 45%, #fff0f6 100%);
+  border-bottom: 2px solid #ffb3cf;
+  box-shadow: 0 2px 10px rgba(255, 143, 177, 0.35);
+  font-family: 'Baloo 2', 'Quicksand', 'Comic Sans MS', cursive, sans-serif;
+  -webkit-app-region: drag; /* the whole bar drags the window */
+  user-select: none;
+}
+
+#cutesy-titlebar .cutesy-titlebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e64980;
+  font-weight: 800;
+  font-size: 13.5px;
+  text-shadow: 0 1px 4px rgba(255, 143, 177, 0.5);
+}
+
+#cutesy-titlebar .cutesy-titlebar__icon {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 1px 3px rgba(255, 92, 147, 0.5));
+  animation: cutesy-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes cutesy-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-2px) rotate(-6deg); }
+}
+
+#cutesy-titlebar .cutesy-titlebar__controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  -webkit-app-region: no-drag; /* buttons must be clickable, not draggable */
+}
+
+#cutesy-titlebar .cutesy-titlebar__btn {
+  -webkit-app-region: no-drag;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  color: #b83280;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(255, 143, 177, 0.4);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+#cutesy-titlebar .cutesy-titlebar__btn:hover {
+  background: #ffb3cf;
+  transform: scale(1.18);
+}
+
+#cutesy-titlebar .cutesy-titlebar__btn--close:hover {
+  background: #ff5c93;
+  color: #fff;
+}
