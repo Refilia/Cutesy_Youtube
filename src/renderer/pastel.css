@@ -263,6 +263,15 @@ ytmusic-browse-response .background-gradient,
   background: transparent !important;
 }
 
+/* Hide the full-bleed "immersive" hero photo behind the Home/browse feed. It's
+   a dark full-width image that clashes with the pastel theme; hiding it lets
+   the seamless pastel gradient show at the top like the rest of the page. */
+ytmusic-browse-response .immersive-background,
+#background.immersive-background.ytmusic-browse-response,
+ytmusic-fullbleed-thumbnail-renderer.ytmusic-browse-response {
+  display: none !important;
+}
+
 /* --- Now-playing / immersive background --------------------------------- */
 #player-page.ytmusic-app-layout,
 ytmusic-player-page,
