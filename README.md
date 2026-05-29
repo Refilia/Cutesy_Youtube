@@ -1,5 +1,9 @@
 # 🎀 Cutesy YouTube Music ♡
 
+> ⚠️ **AI-Generated Project** — This project was fully designed and built with the assistance of
+> Claude (Anthropic AI). The code, structure, and documentation were created through an
+> AI-assisted development process.
+
 A cute little Windows desktop app whose sole purpose is to be a **YouTube Music** player —
 with a soft pastel **pink & white** aesthetic. ✧
 
