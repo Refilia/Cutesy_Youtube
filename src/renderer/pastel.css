@@ -138,6 +138,29 @@ ytmusic-search-box input {
   border-radius: 18px !important;
 }
 
+/* Focused search bar + autocomplete dropdown (YT Music paints these near-black
+   rgb(3,3,3) for dark mode). Recolour to pastel. */
+ytmusic-search-box .search-box,
+ytmusic-search-box #suggestion-list,
+ytmusic-search-suggestions-section,
+ytmusic-search-suggestions-section.ytmusic-search-box {
+  background: #fff5fa !important;
+  border-radius: 18px !important;
+}
+ytmusic-search-box #suggestion-list {
+  border: 1px solid #ffc2dc !important;
+  box-shadow: 0 8px 24px rgba(255, 143, 177, 0.35) !important;
+}
+ytmusic-search-suggestion {
+  background: transparent !important;
+}
+ytmusic-search-suggestion:hover,
+ytmusic-search-suggestion[aria-selected="true"],
+ytmusic-search-suggestion:focus {
+  background: #ffd6e8 !important;
+  border-radius: 12px !important;
+}
+
 /* --- Side / mini guide -------------------------------------------------- */
 ytmusic-guide-renderer,
 ytmusic-guide-section-renderer,
