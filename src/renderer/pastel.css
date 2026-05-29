@@ -59,6 +59,15 @@ body {
   --paper-slider-knob-color: #ff5c93 !important;
 }
 
+/* The page <body> is painted near-black (rgb(3,3,3)) for dark mode. On pages
+   whose containers are transparent (e.g. search results) that dark body shows
+   straight through, turning the middle of the screen dark. Force it pastel. */
+html,
+body,
+ytmusic-app {
+  background-color: #fff0f6 !important;
+}
+
 /* --- Readable text ------------------------------------------------------
    YT Music hardcodes light text (it ships dark-mode only), so on our light
    surfaces the text comes out white-on-white. Force dark text across the
