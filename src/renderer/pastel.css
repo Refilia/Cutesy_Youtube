@@ -61,11 +61,29 @@ body {
 
 /* The page <body> is painted near-black (rgb(3,3,3)) for dark mode. On pages
    whose containers are transparent (e.g. search results) that dark body shows
-   straight through, turning the middle of the screen dark. Force it pastel. */
+   straight through, turning the middle of the screen dark. Give it a soft
+   pastel pink -> white gradient instead.
+
+   The content is infinitely scrollable, so the gradient is a fixed-height tile
+   that repeats vertically. The tile starts AND ends on the same pink
+   (pink -> white -> pink), so every repeat boundary matches and the loop is
+   seamless with no visible seam. */
 html,
 body,
 ytmusic-app {
-  background-color: #fff0f6 !important;
+  background-color: #ffd6e8 !important;
+  background-image: linear-gradient(
+    180deg,
+    #ffd6e8 0%,
+    #fff0f6 30%,
+    #ffffff 50%,
+    #fff0f6 70%,
+    #ffd6e8 100%
+  ) !important;
+  background-size: 100% 1100px !important;
+  background-repeat: repeat-y !important;
+  background-position: 0 0 !important;
+  background-attachment: scroll !important;
 }
 
 /* --- Readable text ------------------------------------------------------
@@ -168,6 +186,14 @@ ytmusic-search-suggestion[aria-selected="true"],
 ytmusic-search-suggestion:focus {
   background: #ffd6e8 !important;
   border-radius: 12px !important;
+}
+
+/* The search-results filter tabs bar turns solid black once it sticks to the
+   top on scroll (the `.stuck` state). Keep it pastel. */
+ytmusic-tabbed-search-results-renderer #tabs,
+#tabs.ytmusic-tabbed-search-results-renderer,
+#tabs.ytmusic-tabbed-search-results-renderer.stuck {
+  background: #ffe3ee !important;
 }
 
 /* --- Side / mini guide -------------------------------------------------- */
